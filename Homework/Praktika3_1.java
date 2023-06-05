@@ -1,8 +1,9 @@
 package Homework;
 
-public class Praktika3 {
+public class Praktika3_1 {
+
     private Node head;
-    //private Node tail;
+    private Node tail;
 
     public String get(int item){
         if (item > size()){throw new ArrayIndexOutOfBoundsException();}// 1 08
@@ -11,7 +12,9 @@ public class Praktika3 {
             tmp = tmp.next;
             item--;
         }
+
         return tmp.value;
+
     }
 
     public int size(){
@@ -30,34 +33,35 @@ public class Praktika3 {
             head = head.next;
     }
 
-    public void add(String str){
+    public void addFirst(String string){
         Node node = new Node();
-        node.value = str;
+        node.value = string;
         if (head != null){
+            if (size() == 1) {
+                tail = head;}
             node.next = head;
+            head.previous = node;
         }
         head = node;
 
     }
 
-    class Node{
+
+    class Node {
         public String value;
         public Node next;
         public Node previous;
     }
-
+    
     public static void main(String[] args) {
-        Praktika3 praktika3 = new Praktika3();
-        praktika3.add("Java1");
-        praktika3.add("Java2");
-        praktika3.add("Java3");
-        praktika3.add("Java4");
-
-        System.out.println(praktika3.size());
-
-        praktika3.remove();
-        System.out.println(praktika3.size());
-        System.out.println(praktika3.get(praktika3.size()-2));
-
+        
+        Praktika3_1 pr = new Praktika3_1();
+        pr.addFirst("Java1");
+        pr.addFirst("Java2");
+        pr.addFirst("Java3");
+        pr.addFirst("Java4");
+        for (int i = 0; i < pr.size(); i++) {
+            System.out.println(pr.get(i));
+        }
     }
 }
