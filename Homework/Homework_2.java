@@ -56,6 +56,12 @@ public class Homework_2 {
         }
     }
     
+    public void printNode(Homework_2 ls) {
+        for (int i = 0; i < ls.size(); i++) {
+            System.out.print(ls.get(i) + " ");
+        }
+    }
+
     public class Node {
         int value;
         Node next;
@@ -70,15 +76,11 @@ public class Homework_2 {
         ls.addFirst(-1);
         ls.addFirst(25);
         System.out.println("Список:");
-        for (int i = 0; i < ls.size(); i++) {
-            System.out.print(ls.get(i) + " ");
-        }
+        ls.printNode(ls);
         ls.revert();
         System.out.println();
         System.out.println("Разворот списка:");
-        for (int i = 0; i < ls.size(); i++) {
-            System.out.print(ls.get(i) + " ");
-        }
+        ls.printNode(ls);
     }
     
 }
